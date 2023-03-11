@@ -10,8 +10,10 @@ pipeline {
     stages {
         stage('Initialize'){
             steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
+                timestamps{
+                    echo "PATH = ${M2_HOME}/bin:${PATH}"
+                    echo "M2_HOME = /opt/maven"
+                }
             }
         }
         stage('Get Source Code') {
@@ -28,12 +30,14 @@ pipeline {
              }
             }
         }
-        stage('Deliver') {
+        stage('Build') {
             steps {
-                echo 'Deliver....'
-                sh '''
-                echo "doing delivery stuff.."
-                '''
+                mvn clean package
+            }
+        }
+        stage('RUN') {
+            steps {
+                sh 'ls -ltr'
             }
         }
     }
