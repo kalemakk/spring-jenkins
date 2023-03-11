@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './mvnw clean package'
+                sh './mvnw -B clean package'
             }
         }
         stage('RUN') {
