@@ -5,20 +5,18 @@ pipeline {
             }
       }
     stages {
-        stage('Build') {
+        stage('Get Source Code') {
             steps {
-                echo "Building.."
-                sh '''
-                echo "doing build stuff.."
-                '''
+               timestamp{
+                git branch: 'main', credentialsId: 'machine1', url: 'git@github.com:kalemakk/spring-jenkins.git'
+               }
             }
         }
-        stage('Test') {
+        stage('Show Source Code') {
             steps {
-                echo "Testing.."
-                sh '''
-                echo "doing test stuff.."
-                '''
+             timestamp{
+                ls -ltr
+             }
             }
         }
         stage('Deliver') {
