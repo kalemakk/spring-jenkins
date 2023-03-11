@@ -15,7 +15,7 @@ pipeline {
         stage('Show Source Code') {
             steps {
              timestamps{
-                sh ls -ltr
+                sh 'ls -ltr'
              }
             }
         }
