@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                mvn clean package
+                mvn 'clean package'
             }
         }
         stage('RUN') {
