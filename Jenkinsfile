@@ -35,10 +35,10 @@ pipeline {
                 sh './mvnw -B clean package'
             }
         }
-        stage('RUN') {
-            steps {
-                sh 'java -jar /var/jenkins_home/workspace/deploy-hello-app/target/learn-jenkins-0.0.1-SNAPSHOT.jar'
-            }
-        }
+        // stage('RUN') {
+        //     steps {
+        //         sh 'java -jar /var/jenkins_home/workspace/deploy-hello-app/target/learn-jenkins-0.0.1-SNAPSHOT.jar'
+        //     }
+        // }
     }
 }
