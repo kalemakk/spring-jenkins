@@ -7,14 +7,14 @@ pipeline {
     stages {
         stage('Get Source Code') {
             steps {
-               timestamp{
+               timestamps{
                 git branch: 'main', credentialsId: 'machine1', url: 'git@github.com:kalemakk/spring-jenkins.git'
                }
             }
         }
         stage('Show Source Code') {
             steps {
-             timestamp{
+             timestamps{
                 sh ls -ltr
              }
             }
